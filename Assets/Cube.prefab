@@ -266,7 +266,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c17eb096e0321954a9a67714b5435377, type: 2}
+  - {fileID: 2100000, guid: f027742aa9407b24ca12ae85daa8684f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -334,7 +334,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8beb77f22fb588a44b828f67ec645780, type: 2}
+  - {fileID: 2100000, guid: f027742aa9407b24ca12ae85daa8684f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,7 +368,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 72ba6408cbe1a924db567d2b8994e385, type: 2}
+  - {fileID: 2100000, guid: 4b4258f125cd00b438e2bc3f23637e71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -659,7 +659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd0bb1c42148e046858e0d1b263acdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 10
 --- !u!222 &222221900480397720
 CanvasRenderer:
   m_ObjectHideFlags: 1
