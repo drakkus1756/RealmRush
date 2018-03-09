@@ -10,24 +10,42 @@ public class Pathfinder : MonoBehaviour {
 	Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
 	Queue<Waypoint> queue = new Queue<Waypoint>();
 	bool isRunning = true;
-	Waypoint searchCenter; // current search center
+	Waypoint searchCenter;
+	List<Waypoint> path = new List<Waypoint>();
 
 	Vector2Int[] directions = {
 		Vector2Int.up,
 		Vector2Int.right,
 		Vector2Int.down,
-		Vector2Int.left };
+		Vector2Int.left
+		};
 
-	// Use this for initialization
-	void Start () 
+	public List<Waypoint> GetPath()
 	{
 		ColorWaypoints();
 		LoadBlocks();
-		Pathfind();
-		//ExploreNeighbors();
+		BreadthFirstSearch();
+		CreatePath();
+		return path;
 	}
 
-    private void Pathfind()
+    private void CreatePath()
+    {
+        path.Add(endWaypoint);
+
+		Waypoint previousWP = endWaypoint.exploredFrom;
+		while(previousWP != startWaypoint)
+		{
+			//add intermediate waypoints
+			path.Add(previousWP);
+			previousWP = previousWP.exploredFrom;
+		}
+
+		path.Add(startWaypoint);
+		path.Reverse();
+    }
+
+    private void BreadthFirstSearch()
     {
 		queue.Enqueue(startWaypoint);
 
@@ -38,8 +56,6 @@ public class Pathfinder : MonoBehaviour {
 			StopIfEndFound();
 			ExploreNeighbors();
 		}
-		// TODO: workout path
-		print("Finished pathfinding?");
     }
 
     private void StopIfEndFound()
@@ -57,14 +73,10 @@ public class Pathfinder : MonoBehaviour {
         foreach (Vector2Int direction in directions)
 		{
 			Vector2Int neighborCoords = searchCenter.GetGridPos() + direction;
-			try
+			if (grid.ContainsKey(neighborCoords))
             {
                 QueueNewNeighbors(neighborCoords);
             }
-            catch
-			{
-				// do nothing
-			}
 			
 		}
     }
