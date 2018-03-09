@@ -648,6 +648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1b73f214ec42f4d855c48ae16662ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exploredColor: {r: 0, g: 1, b: 1, a: 1}
+  isExplored: 0
+  exploredFrom: {fileID: 0}
 --- !u!114 &114524090102966440
 MonoBehaviour:
   m_ObjectHideFlags: 1
