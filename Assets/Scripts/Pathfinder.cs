@@ -22,10 +22,13 @@ public class Pathfinder : MonoBehaviour {
 
 	public List<Waypoint> GetPath()
 	{
-		ColorWaypoints();
-		LoadBlocks();
-		BreadthFirstSearch();
-		CreatePath();
+		if (path.Count == 0)
+		{
+			LoadBlocks();
+			BreadthFirstSearch();
+			CreatePath();
+		}
+		
 		return path;
 	}
 
@@ -94,12 +97,6 @@ public class Pathfinder : MonoBehaviour {
 			neighbor.exploredFrom = searchCenter;
 		}
 
-    }
-
-    private void ColorWaypoints()
-    {
-        startWaypoint.SetTopColor(Color.green);
-		endWaypoint.SetTopColor(Color.red);
     }
 
     private void LoadBlocks()

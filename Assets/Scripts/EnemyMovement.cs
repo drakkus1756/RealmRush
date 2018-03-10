@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    int hits = 10;
-
 	// Use this for initialization
 	void Start ()
     {
@@ -23,16 +21,5 @@ public class EnemyMovement : MonoBehaviour {
 			yield return new WaitForSeconds(1f);
         }
         print("Ending patrol...");
-    }
-
-    void OnParticleCollision(GameObject other)
-    {
-        print("Particle collision");
-        hits--;
-        
-        if (hits < 1)
-        {
-            Destroy(gameObject);
-        }
     }
 }
