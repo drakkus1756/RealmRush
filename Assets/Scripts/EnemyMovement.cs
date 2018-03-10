@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    int hits = 3;
+    int hits = 10;
 
 	// Use this for initialization
 	void Start ()
@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnParticleCollision(GameObject other)
     {
+        print("Particle collision");
         hits--;
         
         if (hits < 1)
