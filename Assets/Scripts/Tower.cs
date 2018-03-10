@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		targetEnemy = FindObjectOfType<EnemyMovement>().transform;
 		CheckIfValidTarget();
 	}
 
@@ -50,5 +51,7 @@ public class Tower : MonoBehaviour {
     {
         var emissionModule = gun.emission;
         emissionModule.enabled = isActive;
-}
+	}
+
+
 }
