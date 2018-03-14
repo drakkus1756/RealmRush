@@ -7,6 +7,9 @@ public class Waypoint : MonoBehaviour {
 	// public ok here as this is a data class
 	public bool isExplored = false;
 	public Waypoint exploredFrom; 
+	public bool isPlaceable = true;
+
+	[SerializeField] GameObject tower;
 
 	Vector2Int gridPos;
 
@@ -27,6 +30,10 @@ public class Waypoint : MonoBehaviour {
 
 	void OnMouseOver()
 	{
-		print("Mouse is over " + gameObject.name);
+		if (Input.GetButtonDown("Fire1") && isPlaceable)
+		{
+			Instantiate(tower, transform.position, Quaternion.identity);
+			isPlaceable = false;
+		}		
 	}
 }
