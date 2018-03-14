@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-	[Tooltip("in seconds")][SerializeField] float spawnDelay = 5f;
-
+	[Range(0.1f, 120.0f)][SerializeField] float spawnDelay = 5f;
 	[SerializeField] GameObject enemyPrefab;
 	[SerializeField] Transform parent;
 
