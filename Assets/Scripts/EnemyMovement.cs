@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
+    BaseHealth baseHealth;
+	int DamagePerMinion = 1;
+
 	// Use this for initialization
 	void Start ()
     {
+        baseHealth = FindObjectOfType<BaseHealth>();
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         var path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
@@ -21,5 +25,7 @@ public class EnemyMovement : MonoBehaviour {
 			yield return new WaitForSeconds(1f);
         }
         print("Ending patrol...");
+        baseHealth.AtBase(DamagePerMinion);
+        Destroy(gameObject);
     }
 }
